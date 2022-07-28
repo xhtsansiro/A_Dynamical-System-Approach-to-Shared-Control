@@ -178,7 +178,9 @@ When it is necessary to adapt the Gazebo scenario, such as adding new obstacles,
 * First, create a new gazebo model, save it in folder [gazebo_model](gazebo_model/)
 * Then, adapt the world file [simple_environment](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment.world), such as adding the new obstacle into the world file.
 * The current world file is the standard scenario.
-* The scenario where a new obstacle exists is set in file [environment_new_obstacle](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment_with_new_obstacle.world)
+* The scenario where a new obstacle exists is set in the world file [environment_new_obstacle](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment_with_new_obstacle.world)
+
+Another option is to launch another world file without adapting the current world file. This is done by change the name of the Gazebo world file in [launch](kuka-lwr-ros/kuka_lwr/lwr_launch/launch/simulation.launch)
 
 The scenarios in Gazebo are shown in following picture, the left figure shows the standard scenario, the right figure shows the scenario a new obstacle is placed in the standard scenario. ![simulation_environment](https://github.com/xhtsansiro/Shared_Control/blob/main/pics/enviroment.png)
 
