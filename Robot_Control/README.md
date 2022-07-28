@@ -100,6 +100,7 @@ crw-rw-r-- 1 root root 189, 263  1월 10 15:42 008
 Then type this command to give permisssion
 ```
 sudo chmod o+w /dev/bus/usb/003/008
+```
 
 #### Execution
 
