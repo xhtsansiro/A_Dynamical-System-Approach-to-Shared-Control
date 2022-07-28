@@ -36,18 +36,25 @@ This package runs perfectly in ROS melodic (full desktop version) and GAZEBO 9.
 ```
 $ catkin_make --pkg lwr_simple_example
 ```
-The build should be done successfully, in case of any additional added functionalities, remember to add the directory of source file and header file in [CMakeList](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/CMakeLists.txt)
+In case of any additional added implemented functionalities, remember to add the directory of its source file and header file in [CMakeList](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/CMakeLists.txt), then rebuild the package by repeating the last step.
 
 
 ### Launch the simulation
 
-In order to launch the robot in simulation, run the following launch files in three different terminals:
+After building the package successfully, the simulation can be started. In order to start the simulation, open three different terminal windows.
 
+First, type the command in all terminal windows.
+```
+$ source level/setup.bash
+```
+This should be done every time after building the package.
+
+After that, run the following launch files in three terminal windows
 ```
 $ roslaunch lwr_simple_example sim.launch
 ```
 
-which will setup the simulation environment;
+which will setup the simulation environment. This command should be firstly executed. 
 
 ```
 $ roslaunch lwr_simple_example client.launch
@@ -58,7 +65,19 @@ which will run the client;
 $ roslaunch lwr_simple_example console.launch
 ```
 
-This is the console from which we can command the robot.
+This is the console from which one can command the robot. Writing the command in the terminal
+
+```
+$ Cmd> command
+```
+Command is a placeholder and possible options to execute in using this approach are as follows:
+* go_home:    move the robot to its homing position.
+* Record:     teleoperate the robot with the haptic device in free mode, normally used for collecting the first demonstration.
+* Guidance:   execute target-reaching task under the guidance from VSDS controller.
+* Restart:    change the haptic device to free mode, the user can move the robot to any new starting positions with the haptic device.
+* Compare:    start the user-study, where different controllers are compared in a target-reaching task.
+
+
 All the functionalities of the EPFL package work.
 In the following picture is shown how the environment has to be set up.
 ![Alt text](Images/environment.png "Environment set up")
