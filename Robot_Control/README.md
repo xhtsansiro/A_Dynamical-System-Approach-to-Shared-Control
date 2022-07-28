@@ -80,9 +80,6 @@ Command is a placeholder and possible options to execute in using this approach 
 
 Notice: the robot means the end-effector of the robot here.
 
-The environment of the simulation in Gazebo is shown as follow ![The simulation environment](https://github.com/xhtsansiro/Shared_Control/blob/main/pics/environment.png)
-
-
 ### Task execution with shared control
 
 #### Haptic Device setup
@@ -182,6 +179,9 @@ When it is necessary to adapt the Gazebo scenario, such as adding new obstacles,
 * Then, adapt the world file [simple_environment](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment.world), such as adding the new obstacle into the world file.
 * The current world file is the standard scenario.
 * The scenario where a new obstacle exists is set in file [environment_new_obstacle](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment_with_new_obstacle.world)
+
+The scenarios in Gazebo are shown in following picture, the left figure shows the standard scenario, the right figure shows the scenario a new obstacle is placed in the standard scenario. ![simulation_environment](https://github.com/xhtsansiro/Shared_Control/blob/main/pics/enviroment.png)
+
 
 If the user wants to adapt the camera view, please change the setting of 'gzclient_camera' in [simple_environment](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment.world).
 * The current camera view is for the experiment validation.
