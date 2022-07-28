@@ -11,7 +11,14 @@ This ROS package is a modified version of the [Project Laboratory Human Centered
 
 * All the other folders are directly taken from [Project Laboratory Human Centered Robotics](https://github.com/BernardoBrogi/Project-Laboratory).
 
-* To implement shared control approach, several functionalities are implemented and added in the package [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example). The source files of implemented actions are in the folder [simple_actions](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions)(kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions).
+* To implement shared control approach, several functionalities are implemented and added in the package [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example). The source files of implemented actions are in the folder [simple_actions](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions).
+    - Source file [MotionGeneration](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/MotionGeneration.cpp) implements VSDS controller, its related functions, as well the other used controllers for haptic guidance generation.
+    - Source file [Shared_control](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/Shared_control.cpp) implements the command `Guidance`.
+    - Source file [Pos_restart](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/Pos_restart.cpp) implements the command `Restart`.
+     - Source file [Fix_point](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/Fix_point.cpp) implements the command `Fix_point`.
+     - Source file [Comparison](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/Comparison.cpp) implements the command `Compare`.
+     - Source file [LfD_record](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/LfD_record.cpp) implements the command `Record`.
+     - Source file [utility](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/utility.cpp) implements some necessary utility functions.      
 
 
 * The folder [data](data/) contains the Gaussian Process (GP) dataset generated from demonstrations, which is used for Learning from demonstration (LfD). Besides, the logging data of the experiment is saved in this folder. 
@@ -117,7 +124,7 @@ Then, execute the command
 $ Cmd> Record
 ```
 
-The user is required to do the first demonstration, and the data are saved in [record](data/record/). The first demonstration is then processed offline by Matlab script [preprocessing](https://github.com/xhtsansiro/Shared_Control/blob/main/Data_Analysis/01_Implementation/preprocessing.m). Afterwards, save the position and velocity data in folder [data](data/)
+The user is required to do the first demonstration, and the data is saved in [record](data/record/). The first demonstration is then processed offline by Matlab script [preprocessing](https://github.com/xhtsansiro/Shared_Control/blob/main/Data_Analysis/01_Implementation/preprocessing.m). Afterwards, save the position and velocity data in folder [data](data/)
 
 
 
