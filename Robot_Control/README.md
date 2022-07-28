@@ -147,13 +147,13 @@ Afterwards, execute the following command, the task is executed with the guidanc
 $ Cmd> Guidance
 ```
 
-When the incremental learning is necessary, the user escapes the guidance during task execution, goes back to the initial position approximately(press a key confirms the move back), demonstrates a new path, starts incremental learning (press a key confirms the learning). 
+When the incremental learning is necessary, the user escapes the guidance during task execution, goes back to the initial position approximately(press a key confirms reaching the initial position), demonstrates a new path, starts incremental learning (press a key confirms the start of the learning). 
 
 After incremental learning, execute the command to go back to the initial position,
 ```
 $ Cmd> Fix_point
 ```
-where the user can set the initial position based on tasks by modifying the position setting in the file [fix_point](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/Fix_point.cpp).
+where the user can set the initial position based on tasks by modifying the position setting in the file [fix_point](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/Fix_point.cpp) line 161.
 
 
 Move the robot to the same starting position, then execute the command
