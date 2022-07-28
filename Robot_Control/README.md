@@ -45,7 +45,7 @@ After building the package successfully, the simulation can be started. In order
 
 First, execute the command in all terminal windows.
 ```
-$ source level/setup.bash
+$ source devel/setup.bash
 ```
 This should be done every time after building the package.
 
