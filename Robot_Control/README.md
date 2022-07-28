@@ -1,24 +1,23 @@
-# Project Laboratory Human Centered Robotics
+# Robot_Control
 
 ## Introduction
 
+This ROS package is a modified version of the [Project Laboratory Human Centered Robotics](https://github.com/BernardoBrogi/Project-Laboratory). Based on that, the learning-based shared control approach is implemented, providing haptic guidance to the human operator when the human moves the robot with the haptic device. 
 
-This package is a modified version of the [KUKA LWR EPFL package robot lasa](https://github.com/epfl-lasa/kuka-lwr-ros).
-Some compatibility issues of that package are solved, and we also added other funtionalities to the package.
-Moreover, the [DMP package](https://github.com/sniekum/dmp) is added to Learn from Demonstration.
-
-The actual functionalities we implemented in this package are the following:
-
-
-* Move the robot with an Haptic Device
-* Record the trajectory of the end effector
-* Replay the trajectory
-* Using DMPs to Learn from Demonstration and replay the shape of the trajectory recorded changing initial position and goal of the trajectory recorded 
 
 ### Structure of the package
 
-* The folder [dmp-master](dmp-master/) contains the [DMP package](https://github.com/sniekum/dmp) of Scott Niekum. Here we added the script "LfD.py" in order to generate a new plan trajectory from a recorded one.
-* The folders "fri-library-ros", "kuka-lwr-ros-examples", "kuka-lwr-ros", "passive-ds-control" were all part of the [KUKA LWR EPFL package robot lasa](https://github.com/epfl-lasa/kuka-lwr-ros). In particular, in the package "[lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/)" (kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example) we implemented all the scripts to move the robot with the haptic device, record and replay a trajectory and execute a trajectory with a new goal.
+* The folder [gazebo_model](gazebo_model/) contains several models used in teleoperation scenario in Gazebo.
+
+* All the other folders are directly taken from [Project Laboratory Human Centered Robotics](https://github.com/BernardoBrogi/Project-Laboratory) except gazebo_model.
+
+* To implement shared control approach, several functionalities are implemented and added in the package [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example). The source files of implemented functions are in the folder [kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions)(kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions).
+    - dfsdf
+    - pdf
+    - fsdrwer
+
+* The folder [data](data/) contains the Gaussian Process (GP) dataset generated from demonstrations, which is used for Learning from demonstration (LfD). Besides, the logging data of the experiment is saved in this folder.
+
 * The folder [data](data/) contains the txt files where our package reads and writes trajectory executed. Further, we implemented some simple matlab files to plot the trajectories commanded to, or executed by, the robot.
 * The folder [video](video/) contains some examples videos of the robot in simulation performing different tasks.
 
