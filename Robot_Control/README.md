@@ -80,6 +80,9 @@ Command is a placeholder and possible options to execute in using this approach 
 
 Notice: the robot means the end-effector of the robot here.
 
+The environment of the simulation in Gazebo is shown as follow ![The simulation environment](https://github.com/xhtsansiro/Shared_Control/blob/main/pics/environment.png)
+
+
 ### Task execution with shared control
 
 #### Haptic Device setup
