@@ -146,9 +146,11 @@ $ Cmd> Guidance
 
 When the incremental learning is necessary, the user escapes the guidance during task execution, goes back to the initial position approximately(press a key confirms the move back), demonstrates a new path, starts incremental learning (press a key confirms the learning). 
 
-After incremental learning, execute the command 
+After incremental learning, execute the command to go back to the initial position,
 ```
 $ Cmd> Fix_point
+where the user can set the initial position based on tasks by modifying the position setting in the file [fix_point](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/Fix_point.cpp).
+
 ```
 Move the robot to the same starting position, then execute the command
 ```
@@ -179,11 +181,12 @@ If the user wants to adapt the camera view, please change the setting of 'gzclie
 
 
 ### Notice:
-* During the experiment validation, deactivate the safety constraints in file [joint_controller](kuka-lwr-ros/kuka_lwr/lwr_controllers/src/joint_controllers.cpp) line 264 - line 274. This avoids going home position after finishing the task. However, it is not a clean solution. A clean solution can be obtained by finishing the implementation in [contact_safety](kuka-lwr-ros/kuka_lwr/lwr_controllers/src/utils/contact_safety.cpp)
+* During the experiment validation, deactivate the safety constraints in file [joint_controller](kuka-lwr-ros/kuka_lwr/lwr_controllers/src/joint_controllers.cpp) line 264 - line 274. This avoids that the robot must go home position every time after finishing the task, such that directly going to other starting position for a new task is possible. 
+However, it is not a clean solution. A clean solution can be obtained by improving the implementation in [contact_safety](kuka-lwr-ros/kuka_lwr/lwr_controllers/src/utils/contact_safety.cpp)
 
 * The safety constraints is activated during the user study.
 
-* Remember to adapt the absolute path used in the source files of [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions) and in the head files of [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/include/simple_actions)
+* Remember to adapt the absolute paths used in the source files of [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions) and in the head files of [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/include/simple_actions)
 
 
 
