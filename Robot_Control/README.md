@@ -179,8 +179,13 @@ $ Cmd> Compare
 When it is necessary to adapt the Gazebo scenario, such as adding new obstacles, steps are following:
 * First, create a new gazebo model, save it in folder [gazebo_model](gazebo_model/)
 * Then, adapt the world file [simple_environment](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment.world), such as adding the new obstacle into the world file.
+* The current world file is the standard scenario.
+* The scenario where a new obstacle exists is set in file [environment_new_obstacle](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment_with new obstacle.world)
 
 If the user wants to adapt the camera view, please change the setting of 'gzclient_camera' in [simple_environment](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment.world).
+* The current camera view is for the experiment validation.
+* The camera view setting of the user study is in file [environment_user_study](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment_user_study.world).
+
 
 
 ### Notice:
