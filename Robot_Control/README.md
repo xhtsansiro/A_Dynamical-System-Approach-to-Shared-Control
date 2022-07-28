@@ -43,13 +43,13 @@ In case of any additional added implemented functionalities, remember to add the
 
 After building the package successfully, the simulation can be started. In order to start the simulation, open three different terminal windows.
 
-First, type the command in all terminal windows.
+First, execute the command in all terminal windows.
 ```
 $ source level/setup.bash
 ```
 This should be done every time after building the package.
 
-After that, run the following launch files in three terminal windows
+After that, execute the commands in three different terminal windows
 ```
 $ roslaunch lwr_simple_example sim.launch
 ```
@@ -59,13 +59,13 @@ which will setup the simulation environment. This command should be firstly exec
 ```
 $ roslaunch lwr_simple_example client.launch
 ```
-which will run the client;
+which will run the client.
 
 ```
 $ roslaunch lwr_simple_example console.launch
 ```
 
-This is the console from which one can command the robot. Writing the command in the terminal
+This is the console from which one can command the robot. Execute the command in the terminal
 
 ```
 $ Cmd> command
@@ -74,7 +74,7 @@ Command is a placeholder and possible options to execute in using this approach 
 * `go_home`:    move the robot to its homing position.
 * `Record`:     teleoperate the robot with the haptic device in free mode, normally used for collecting the first demonstration.
 * `Guidance`:   execute target-reaching task under the guidance from VSDS controller.
-* `Restart`:    change the haptic device to free mode, the user can move the robot to any new starting positions with the haptic device.
+* `Restart`:    set the haptic device to free mode, the user can move the robot to any new starting positions with the haptic device.
 * `Compare`:    start the user-study, where different controllers are compared in a target-reaching task.
 * `Fix_point`:    Move the robot to a pre-defined position.
 
@@ -84,7 +84,7 @@ Notice: the robot means the end-effector of the robot here.
 
 #### Haptic Device setup
 
-The haptic device we worked with is the [omega.3](https://www.forcedimension.com/images/doc/specsheet_-_omega3.pdf). You may need to adjust the path to the libraries of the haptic device in the CMakelist.txt.
+The haptic device is the [omega.3](https://www.forcedimension.com/images/doc/specsheet_-_omega3.pdf). You may need to adjust the path to the libraries of the haptic device in the CMakelist.txt.
 You may also need to give the permission to the port where the haptic device is inserted. To do this type in a terminal
 
 ```
@@ -102,13 +102,10 @@ Then type this command to give permisssion
 sudo chmod o+w /dev/bus/usb/003/008
 ```
 
-#### Execution
 
+#### Collection of the first demonstration
 
-
-##### Collection of the first demonstration
-
-Start the three terminal windows and launch the corresponding launch files.
+Start three terminal windows and launch the corresponding launch files as mentioned above.
 
 First, execute the command 
 ```
@@ -122,9 +119,11 @@ $ Cmd> Record
 
 The user is required to do the first demonstration, and the data is saved in [record](data/record/). The first demonstration is then processed offline by Matlab script [preprocessing](https://github.com/xhtsansiro/Shared_Control/Data_Analysis/01_Implementation/preprocessing.m). Afterwards, save the position and velocity data in folder [data](data/)
 
-##### Execution with shared control
 
-Start the three terminal windows and launch the corresponding launch files.
+
+#### Execution with shared control
+
+Start three terminal windows and launch the corresponding launch files as mentioned above.
 
 execute the command 
 ```
@@ -135,13 +134,12 @@ Then execute the command
 ```
 $ Cmd> Guidance
 ```
-The user receives the haptic guidance from VSDS controller and executes the task. 
-
-After reaching the target, execute the command to move the robot to any other starting positions.
+where the user receives the haptic guidance from VSDS controller and executes the task.After reaching the target, execute the following command to move the robot to any other starting positions.
 ```
 $ Cmd> Restart
 ```
-Similarly, execute the command, the task is executed with the guidance. 
+
+Afterwards, execute the following command, the task is executed with the guidance. 
 ```
 $ Cmd> Guidance
 ```
@@ -157,9 +155,9 @@ Move the robot to the same starting position, then execute the command
 $ Cmd> Guidance
 ```
 
-##### User study
+#### User study
 
-Start the three terminal windows and launch the corresponding launch files.
+Start three terminal windows and launch the corresponding launch files as mentioned above.
 
 execute the command 
 ```
@@ -176,6 +174,16 @@ $ Cmd> Compare
 When it is necessary to adapt the Gazebo scenario, such as adding new obstacles, steps are following:
 * First, create a new gazebo model, save it in folder [gazebo_model](gazebo_model/)
 * Then, adapt the world file [simple_environment](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment.world), such as adding the new obstacle into the world file.
+
 If the user wants to adapt the camera view, please change the setting of 'gzclient_camera' in [simple_environment](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment.world).
+
+
+### Notice:
+* During the experiment validation, deactivate the safety constraints in file [joint_controller](kuka-lwr-ros/kuka_lwr/lwr_controllers/src/joint_controllers.cpp) line 264 - line 274. This avoids going home position after finishing the task. However, it is not a clean solution. A clean solution can be obtained by finishing the implementation in [contact_safety](kuka-lwr-ros/kuka_lwr/lwr_controllers/src/utils/contact_safety.cpp)
+
+* The safety constraints is activated during the user study.
+
+* Remember to adapt the absolute path used in the source files of [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions) and in the head files of [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/include/simple_actions)
+
 
 
