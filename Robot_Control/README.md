@@ -9,17 +9,19 @@ This ROS package is a modified version of the [Project Laboratory Human Centered
 
 * The folder [gazebo_model](gazebo_model/) contains several models used in teleoperation scenario in Gazebo.
 
-* All the other folders are directly taken from [Project Laboratory Human Centered Robotics](https://github.com/BernardoBrogi/Project-Laboratory) except gazebo_model.
+* All the other folders are directly taken from [Project Laboratory Human Centered Robotics](https://github.com/BernardoBrogi/Project-Laboratory).
 
-* To implement shared control approach, several functionalities are implemented and added in the package [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example). The source files of implemented functions are in the folder [kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions)(kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions).
-    - dfsdf
-    - pdf
-    - fsdrwer
+* To implement shared control approach, several functionalities are implemented and added in the package [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example). The source files of implemented functions are in the folder [simple_actions](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions)(kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions).
 
-* The folder [data](data/) contains the Gaussian Process (GP) dataset generated from demonstrations, which is used for Learning from demonstration (LfD). Besides, the logging data of the experiment is saved in this folder.
 
-* The folder [data](data/) contains the txt files where our package reads and writes trajectory executed. Further, we implemented some simple matlab files to plot the trajectories commanded to, or executed by, the robot.
-* The folder [video](video/) contains some examples videos of the robot in simulation performing different tasks.
+* The folder [data](data/) contains the Gaussian Process (GP) dataset generated from demonstrations, which is used for Learning from demonstration (LfD). Besides, the logging data of the experiment is saved in this folder. 
+    - Subfolder [backup_GP_dataset](data/backup_GP_dataset/): backup of GP dataset.
+    - Subfolder [incremental_learning](data/incremental_learning/): logging data of the new demonstration used for incremental learning.
+    - Subfolder [record](data/record/): logging data of the original demonstration.
+    - Subfolder [shared_control](data/shared_control/): logging data of the trial executed with the guidance from controller.
+    - Subfolder [stiffness_plot](data/stiffness_plot/): logging data of the desired stiffness along the reference path.
+    - Subfolder [user_study](data/user_study/): logging data of the user study.
+    - [position](data/pos_train.txt) and [velocity](data/vel_train.txt): GP dataset for learning a DS, incremental learning is done by simply expanding this dataset.
 
 
 ## How to use (simulation)
