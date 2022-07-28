@@ -14,7 +14,7 @@ The approach is validated in both normal execution and incremental learning scen
 
 ## Structure
 
-* The package [Robot_Control](Robot_Control/): A ROS package, implements the proposed approach, settings of the , and so on.
+* The package [Robot_Control](Robot_Control/): A ROS package, implements the proposed approach, experiment settings, and so on.
 
 * The package [Data_Analysis](Data_Analysis/): Analyze the data from experiment and user study, visualize the results.
 
