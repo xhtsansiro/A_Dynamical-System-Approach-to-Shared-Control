@@ -24,9 +24,22 @@ This ROS package is a modified version of the [Project Laboratory Human Centered
     - [position](data/pos_train.txt) and [velocity](data/vel_train.txt): GP dataset for learning a DS, incremental learning is done by simply expanding this dataset.
 
 
-## How to use (simulation)
+## How to use
 
 This package runs perfectly in ROS melodic (full desktop version) and GAZEBO 9.
+
+### Build the package
+
+* download this package into the workspace `catkin_ws` (user-defined, any other workspace is fine). 
+* cd to the directory `catkin_ws`
+* type the command in the terminal 
+```
+$ catkin_make --pkg lwr_simple_example
+```
+The build should be done successfully, in case of any additional added functionalities, remember to add the directory of source file and header file in [CMakeList](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/CMakeLists.txt)
+
+
+### Launch the simulation
 
 In order to launch the robot in simulation, run the following launch files in three different terminals:
 
