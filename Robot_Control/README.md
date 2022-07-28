@@ -120,7 +120,7 @@ Then, execute the command
 $ Cmd> Record
 ```
 
-The user is required to do the first demonstration, and the data is saved in [record](data/record/). The first demonstration is then processed offline by Matlab script [preprocessing](https://github.com/xhtsansiro/Shared_Control/Data_Analysis/01_Implementation/preprocessing.m). Afterwards, save the position and velocity data in folder [data](data/)
+The user is required to do the first demonstration, and the data is saved in [record](data/record/). The first demonstration is then processed offline by Matlab script [preprocessing](https://github.com/xhtsansiro/Shared_Control/blob/main/Data_Analysis/01_Implementation/preprocessing.m). Afterwards, save the position and velocity data in folder [data](data/)
 
 
 
@@ -152,9 +152,10 @@ When the incremental learning is necessary, the user escapes the guidance during
 After incremental learning, execute the command to go back to the initial position,
 ```
 $ Cmd> Fix_point
+```
 where the user can set the initial position based on tasks by modifying the position setting in the file [fix_point](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/Fix_point.cpp).
 
-```
+
 Move the robot to the same starting position, then execute the command
 ```
 $ Cmd> Guidance
