@@ -11,7 +11,7 @@ This ROS package is a modified version of the [Project Laboratory Human Centered
 
 * All the other folders are directly taken from [Project Laboratory Human Centered Robotics](https://github.com/BernardoBrogi/Project-Laboratory).
 
-* To implement shared control approach, several functionalities are implemented and added in the package [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example). The source files of implemented functions are in the folder [simple_actions](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions)(kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions).
+* To implement shared control approach, several functionalities are implemented and added in the package [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example). The source files of implemented actions are in the folder [simple_actions](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions)(kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions).
 
 
 * The folder [data](data/) contains the Gaussian Process (GP) dataset generated from demonstrations, which is used for Learning from demonstration (LfD). Besides, the logging data of the experiment is saved in this folder. 
@@ -71,27 +71,16 @@ This is the console from which one can command the robot. Writing the command in
 $ Cmd> command
 ```
 Command is a placeholder and possible options to execute in using this approach are as follows:
-* go_home:    move the robot to its homing position.
-* Record:     teleoperate the robot with the haptic device in free mode, normally used for collecting the first demonstration.
-* Guidance:   execute target-reaching task under the guidance from VSDS controller.
-* Restart:    change the haptic device to free mode, the user can move the robot to any new starting positions with the haptic device.
-* Compare:    start the user-study, where different controllers are compared in a target-reaching task.
+* `go_home`:    move the robot to its homing position.
+* `Record`:     teleoperate the robot with the haptic device in free mode, normally used for collecting the first demonstration.
+* `Guidance`:   execute target-reaching task under the guidance from VSDS controller.
+* `Restart`:    change the haptic device to free mode, the user can move the robot to any new starting positions with the haptic device.
+* `Compare`:    start the user-study, where different controllers are compared in a target-reaching task.
+* `Fix_point`:    Move the robot to a pre-defined position.
 
+Notice: the robot means the end-effector of the robot here.
 
-All the functionalities of the EPFL package work.
-In the following picture is shown how the environment has to be set up.
-![Alt text](Images/environment.png "Environment set up")
-
-For instance, writing the command
-
-```
-$ Cmd> go_home
-```
-
-in the console will make the robot move in the home position.
-It's always recommended to run this command at the beginning and after every other command in order to avoid singularities and problems related to the Cartesian controller.
-
-### Move the robot with the Haptic Device and record the trajectory
+### Task execution with shared control
 
 #### Haptic Device setup
 
@@ -111,67 +100,81 @@ crw-rw-r-- 1 root root 189, 263  1월 10 15:42 008
 Then type this command to give permisssion
 ```
 sudo chmod o+w /dev/bus/usb/003/008
-```
+
 #### Execution
 
-Start the three files of the simulation and go in the position "go_home".
 
-Now if you execute the command
 
+##### Collection of the first demonstration
+
+Start the three terminal windows and launch the corresponding launch files.
+
+First, execute the command 
+```
+$ Cmd> go_home
+```
+
+Then, execute the command 
 ```
 $ Cmd> Record
 ```
 
-you will be able for 10 seconds to control the robot with the haptic device and record the trajectory of the end effector. The positions commanded to the robot will be saved in the file data/data_comm.txt. The real positions of the end effector are saved in the file data/data_mes.txt
-The end effector positions are taken 500 times per second.
+The user is required to do the first demonstration, and the data is saved in [record](data/record/). The first demonstration is then processed offline by Matlab script [preprocessing](https://github.com/xhtsansiro/Shared_Control/Data_Analysis/01_Implementation/preprocessing.m). Afterwards, save the position and velocity data in folder [data](data/)
 
-Now if you go_home again (you may need to execute the command twice) and execute the command
+##### Execution with shared control
 
+Start the three terminal windows and launch the corresponding launch files.
+
+execute the command 
 ```
-$ Cmd> Replay
-```
-
-the robot will replay the trajectory recorded.
-
-### Exploit the trajectory recorded to LfD and execute another trajectory with the same shape
-
-Here we assume there is a trajectory recorded in the file data_mes.txt. To plan and execute a new trajectory based on the shape of the other run in another terminal
-
-```
-$ roslaunch dmp dmp.launch
-```
- 
-In the file LfD.py in the DMP package you can set the initial position of the trajectory (default is the initial position of go_home) and the goal position.
-
-Running in another terminal
-
-```
-$ rosrun dmp LfD.py
+$ Cmd> go_home
 ```
 
-will create a new trajectory based on the other one with the goal given. It will be saved it in the file data/plan.txt.
-
-if you go_home and then write in the console
-
+Then execute the command 
 ```
-$ Cmd> LfD
+$ Cmd> Guidance
+```
+The user receives the haptic guidance from VSDS controller and executes the task. 
+
+After reaching the target, execute the command to move the robot to any other starting positions.
+```
+$ Cmd> Restart
+```
+Similarly, execute the command, the task is executed with the guidance. 
+```
+$ Cmd> Guidance
 ```
 
-the robot will execute the new trajectory.
+When the incremental learning is necessary, the user escapes the guidance during task execution, goes back to the initial position approximately(press a key confirms the move back), demonstrates a new path, starts incremental learning (press a key confirms the learning). 
 
-## How to use (real robot)
+After incremental learning, execute the command 
+```
+$ Cmd> Fix_point
+```
+Move the robot to the same starting position, then execute the command
+```
+$ Cmd> Guidance
+```
 
-This package had compatibility issues with our robot so we couldn't use this package to run the real robot.
+##### User study
 
-In order to set the connection with the real robot, follow the instructions for the [Network Setup](https://github.com/epfl-lasa/kuka-lwr-ros/wiki/Network-setup) here. Then type:
+Start the three terminal windows and launch the corresponding launch files.
+
+execute the command 
 ```
-$ sudo su
+$ Cmd> go_home
 ```
-insert the password and then run the command:
+
+Then execute the command 
 ```
-$ route add -net 192.168.0.20 netmask 255.255.255.255 gw 192.168.0.100 dev enp4s0
+$ Cmd> Compare
 ```
-to add a static route to a single host. 
-If the network results unreachable you may need to check the connections setting of your computer.
+
+#### Adapt scenario in Gazebo
+
+When it is necessary to adapt the Gazebo scenario, such as adding new obstacles, steps are following:
+* First, create a new gazebo model, save it in folder [gazebo_model](gazebo_model/)
+* Then, adapt the world file [simple_environment](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment.world), such as adding the new obstacle into the world file.
+If the user wants to adapt the camera view, please change the setting of 'gzclient_camera' in [simple_environment](kuka-lwr-ros-examples/lwr_robot_examples/kuka-lwr-single/lwr_robot/single_lwr_robot/worlds/simple_environment.world).
 
 
