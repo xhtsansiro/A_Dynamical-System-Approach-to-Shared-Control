@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+
+    <gui>
+      <camera name="gzclient_camera">
+        <pose>0.882477 0.401259 1.075404 0 0.664 -2.839185</pose>
+      </camera>
+    </gui>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+      <gravity>0 0 -9.8</gravity>
+    </physics>
+
+    <include>
+      <uri>model://target_bin</uri>
+      <pose>-0.419664 0.4 0 0 0 0</pose>
+      <static>true</static>
+    </include>
+
+    <include>
+      <uri>model://wall</uri>
+      <pose>-0.4 0.3 0 0 0 0</pose>
+      <static>true</static>
+    </include>
+
+    <include>
+      <uri>model://wall</uri>
+      <pose>-0.4 0.51 0 0 0 0</pose>
+      <static>true</static>
+    </include>
+
+    
+    <include>
+      <uri>model://wall_short</uri>
+      <pose>-0.145 0.405 0 0 0 1.5707963</pose>
+      <static>true</static>
+    </include>
+
+    <include>
+      <uri>model://wall_short</uri>
+      <pose>-0.655 0.405 0 0 0 1.5707963</pose>
+      <static>true</static>
+    </include>
+
+     <include>
+      <uri>model://new_obstacle</uri>
+      <pose>-0.4 0.2 0.2 0 0 0</pose>
+      <static>true</static>
+    </include>
+
+
+
+  </world>
+</sdf>
