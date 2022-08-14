@@ -7,7 +7,7 @@ This project implements a learning-based shared control approach which uses firs
 The proposed approach is validated in a teleoperation scenario, where a target-reaching task is executed. The 3-DOF omega.3 haptic device is the master device, and 7-DOF KUKA LWR in Gazebo is the remote robot. The target to reach is the upper surface of the pink object placed in a box. ![The setting of teleoperation](https://github.com/xhtsansiro/Shared_Control/blob/main/pics/teleoperation.png).
 
 The approach is validated in both normal execution and incremental learning scenarios. Besides, user-study is conducted to compare the generated haptic guidances among different controllers. 
-* VSDS Controller 
+* VSDS Controller [Closed-Loop Variable Stiffness Control of Dynamical Systems](https://ieeexplore.ieee.org/document/9555795)
 * Flow Controller 
 * Open-loop Impedance Controller 
 * Free Mode, without guidance.
