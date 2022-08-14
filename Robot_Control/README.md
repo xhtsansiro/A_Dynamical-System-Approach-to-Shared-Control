@@ -204,7 +204,7 @@ However, it is not a clean solution. A clean solution can be obtained by improvi
 
 * The safety constraints is activated during the user study.
 
-* Remember to adapt the absolute paths used in the source files of [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions) and in the head files of [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/include/simple_actions)
+* Remember to adapt the absolute paths used in the source files of [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions) and in the header files of [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/include/simple_actions)
 
 
 
