@@ -6,12 +6,12 @@
 This Matlab project visualizes the proposed shared control approach, and analyzes the data of validation experiment and the data of user study. 
 
 ### Scripts
-* [preprocessing.m](preprocessing.m): preprocess the original demonstration, generate Gaussian Process(GP) dataset.
-* [gp_prediction.m](gp_prediction.m): Implement Gaussian Process Regression and visualize its performance.
-* [gp_vsds.m](gp_vsds.m): Visualize the construction of Variable Stiffness Dynamical Systems (VSDS), and check the performance of VSDS used in a simple second order DS.
-* [plot_all.m](plot_all.m): Generate all necessary plots to visualize results of validation experiment.  
-* [analyze_userstudy.m](analyze_userstudy.m): Generate all necessary plots to visualize results of the user study.
-* [video_generation.m](video_generation.m): Generate videos of the robot motion. 
+* [preprocessing.m](01_Implementation/preprocessing.m): preprocess the original demonstration, generate Gaussian Process(GP) dataset.
+* [gp_prediction.m](01_Implementation/gp_prediction.m): Implement Gaussian Process Regression and visualize its performance.
+* [gp_vsds.m](01_Implementation/gp_vsds.m): Visualize the construction of Variable Stiffness Dynamical Systems (VSDS), and check the performance of VSDS used in a simple second order DS.
+* [plot_all.m](01_Implementation/plot_all.m): Generate all necessary plots to visualize results of validation experiment.  
+* [analyze_userstudy.m](01_Implementation/analyze_userstudy.m): Generate all necessary plots to visualize results of the user study.
+* [video_generation.m](01_Implementation/video_generation.m): Generate videos of the robot motion. 
 
 ### Folder 
 * [data](data/): data of the validation experiment.
