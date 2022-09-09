@@ -160,14 +160,14 @@ bool LfD_record_action::update(){
     ros::Time begin = ros::Time::now();
     std::ofstream outfile;
 //    outfile.open("/home/hwadong/Gio_Bern_Zem/data/data.txt", std::ios::app);
-    outfile.open("/home/karldhri/catkin_ws/src/Project-Laboratory/data/record/desire_robot_pos.txt");
+    outfile.open("/home/karldhri/catkin_ws/src/Project-Laboratory/data/record/data_comm.txt");
     if( !outfile ) { // file couldn't be opened
           std::cerr << "Error: file could not be opened" << std::endl;
           exit(1);
        }
 
    std::ofstream outfile2;
-    outfile2.open("/home/karldhri/catkin_ws/src/Project-Laboratory/data/record/ist_robot_pos.txt");
+    outfile2.open("/home/karldhri/catkin_ws/src/Project-Laboratory/data/record/data_mes.txt");
     if( !outfile2 ) { // file couldn't be opened
           std::cerr << "Error: file could not be opened" << std::endl;
           exit(1);
