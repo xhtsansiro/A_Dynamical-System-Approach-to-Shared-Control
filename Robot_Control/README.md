@@ -185,7 +185,7 @@ Then execute the command
 $ Cmd> Compare
 ```
 
-### Adapt scenario in Gazebo
+## Adapt scenario in Gazebo
 
 When it is necessary to adapt the Gazebo scenario, such as adding new obstacles, steps are following:
 * First, create a new gazebo model, save it in folder [gazebo_model](gazebo_model/)
@@ -204,7 +204,7 @@ If the user wants to adapt the camera view, please change the setting of 'gzclie
 
 
 
-### Notice:
+## Notice:
 * During the experiment validation, deactivate the safety constraints in file [joint_controller](kuka-lwr-ros/kuka_lwr/lwr_controllers/src/joint_controllers.cpp) line 264 - line 274. This avoids that the robot must go home position every time after finishing the task, such that directly going to other starting position for a new task is possible. 
 However, it is not a clean solution. A clean solution can be obtained by improving the implementation in [contact_safety](kuka-lwr-ros/kuka_lwr/lwr_controllers/src/utils/contact_safety.cpp)
 
