@@ -14,9 +14,9 @@ The approach is validated in both normal execution and incremental learning scen
 
 ## Structure
 
-* The package [Robot_Control](Robot_Control/): A ROS package, implements the proposed approach, experiment settings, and so on.
+* The package [Robot_Control](Robot_Control/): A ROS package (C++ implementation), which implements the proposed approach, experiment settings, and so on. One can use this package to validate the proposed approach in a teleoperation scenario in Gazebo. Detailed usage of this package can be found in [ReadMe of Robot Control](Robot_Control/README.md).   
 
-* The package [Data_Analysis](Data_Analysis/): Analyze the data from experiment and user study, visualize the results.
+* The package [Data_Analysis](Data_Analysis/): A matlab project, which analyzes the data from experiment and user study, visualizes the results. Detailed usage of this package can be found in [ReadMe of Data Analysis](Data_Analysis/README.md).
 
 
 
