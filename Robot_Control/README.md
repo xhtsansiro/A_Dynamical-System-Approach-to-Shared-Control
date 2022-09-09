@@ -124,7 +124,7 @@ Then, execute the command
 $ Cmd> Record
 ```
 
-The user is required to do the first demonstration, and the data is saved in [record](data/record/). The robot desired positions are saved in [desired_positions](data/record/data_comm.txt), and the robot real positions are saved in [real_positions](data/record/data_mes.txt).  The first demonstration (data of real postions) is then processed offline by Matlab script [preprocessing](https://github.com/xhtsansiro/Shared_Control/blob/main/Data_Analysis/01_Implementation/preprocessing.m). Afterwards, save the position and velocity data in folder [data](data/)
+The user is required to do the first demonstration, and the data is saved in [record](data/record/). The robot desired positions are saved in [desired_positions](data/record/data_comm.txt), and the robot real positions are saved in [real_positions](data/record/data_mes.txt).  The first demonstration (data of real postions) is then processed offline by Matlab script [preprocessing](https://github.com/xhtsansiro/Shared_Control/blob/main/Data_Analysis/01_Implementation/preprocessing.m). Afterwards, save the position and velocity data in folder [data](data/).
 
 
 
