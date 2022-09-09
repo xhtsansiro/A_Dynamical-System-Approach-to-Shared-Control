@@ -40,7 +40,7 @@ This ROS package is a modified version of the [Project Laboratory Human Centered
 * Haptic Device [omega.3](https://www.forcedimension.com/images/doc/specsheet_-_omega3.pdf)
 
 ### Setting of haptic device
-The haptic device is the [omega.3](https://www.forcedimension.com/images/doc/specsheet_-_omega3.pdf). It is necessary to adjust the path to the libraries of the haptic device in the line 34, 38 of [CMakelist.txt] (kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/CMakeLists.txt) .
+The haptic device is the [omega.3](https://www.forcedimension.com/images/doc/specsheet_-_omega3.pdf). It is necessary to adjust the path to the libraries of the haptic device in the line 34, 38 of [CMakelist](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/CMakeLists.txt).
 It is also required to give the writing permission to the port where the haptic device is inserted. To do this type in a terminal
 
 ```
