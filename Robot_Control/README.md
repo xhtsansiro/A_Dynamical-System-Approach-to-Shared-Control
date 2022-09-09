@@ -204,7 +204,7 @@ However, it is not a clean solution. A clean solution can be obtained by improvi
 
 * The safety constraints is activated during the user study.
 
-* Remember to adapt the absolute paths used in the source files of [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions), which are line 83,96,169,176,183,190,197,203 of [Comparison.cpp](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/Comparison.cpp), line 163,170 of [Record.cpp](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/LfD_record.cpp), line 313,319,474 of [MotionGeneration.cpp](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/MotionGeneration.cpp), line 94,110,126,133,140,147,154,531,537,543,549,630,659,660 of [Shared_Control.cpp](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/Shared_Control.cpp)
+* Remember to adapt the absolute paths used in the source files of [lwr_simple_example](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions), which are line 83, 96, 169, 176, 183, 190, 197, 203 of [Comparison.cpp](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/Comparison.cpp), line 163, 170 of [Record.cpp](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/LfD_record.cpp), line 313, 319, 474 of [MotionGeneration.cpp](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/MotionGeneration.cpp), line 94, 110, 126, 133, 140, 147, 154, 531, 537, 543, 549, 630, 659, 660 of [Shared_control.cpp](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/src/simple_actions/Shared_control.cpp)
 
 
 
