@@ -31,7 +31,33 @@ This ROS package is a modified version of the [Project Laboratory Human Centered
     - [position](data/pos_train.txt) and [velocity](data/vel_train.txt): GP dataset for learning a DS, incremental learning is done by simply expanding this dataset.
 
 
-## How to use
+## Installtion
+
+### Required softwares and hardwares
+* Ubuntu 18.04
+* ROS melodic
+* Gazebo 9
+* Haptic Device [omega.3](https://www.forcedimension.com/images/doc/specsheet_-_omega3.pdf)
+
+### Setting of haptic device
+The haptic device is the [omega.3](https://www.forcedimension.com/images/doc/specsheet_-_omega3.pdf). It is necessary to adjust the path to the libraries of the haptic device in the line 34, 38 of [CMakelist.txt] (kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/CMakeLists.txt) .
+It is also required to give the writing permission to the port where the haptic device is inserted. To do this type in a terminal
+
+```
+$ ls -l /dev/bus/usb/00*
+```
+Which will give the list of devices connected to the port. Check which is the port connected to the haptic device.
+
+Suppose this corresponds to your device
+```
+/dev/bus/usb/003
+crw-rw-r-- 1 root root 189, 263  1월 10 15:42 008
+```
+Then type this command to give permisssion
+```
+sudo chmod o+w /dev/bus/usb/003/008
+```
+
 
 This package runs perfectly in ROS melodic (full desktop version) and GAZEBO 9.
 
