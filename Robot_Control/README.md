@@ -58,6 +58,13 @@ Then type this command to give permisssion
 sudo chmod o+w /dev/bus/usb/003/008
 ```
 
+## Quick Start
+
+### Simulation in Matlab
+If you want to check how VSDS controller works in controlling a simple second-order Dynamical Systems(DS), please run script [gp_vsds](../Data_Analysis/01_Implementation/gp_vsds.m), and the profiles of the path, velocity, accleration of the controlled system are shown. You can also check the performance of using VSDS controller in controlling other DS.  
+
+### Simulation in Gazebo
+
 ### Build the package
 
 * download this package into the workspace `catkin_ws` (user-defined, any other workspace is fine). 
