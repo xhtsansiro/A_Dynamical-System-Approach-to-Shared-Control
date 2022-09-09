@@ -61,11 +61,11 @@ sudo chmod o+w /dev/bus/usb/003/008
 ## Quick Start
 
 ### Simulation in Matlab
-If you want to check how VSDS controller works in controlling a simple second-order Dynamical Systems(DS), please run script [gp_vsds](../Data_Analysis/01_Implementation/gp_vsds.m), and the profiles of the path, velocity, accleration of the controlled system are shown. You can also check the performance of using VSDS controller in controlling other DS.  
+If you want to check how VSDS controller works in controlling a simple second-order Dynamical Systems(DS), please run script [gp_vsds](../Data_Analysis/01_Implementation/gp_vsds.m). The profiles of the path, velocity, accleration of the controlled system are shown. You can also check the performance of using VSDS controller in controlling other DS.  
 
 ### Simulation in Gazebo
 
-### Build the package
+#### Build the package
 
 * download this package into the workspace `catkin_ws` (user-defined, any other workspace is fine). 
 * cd to the directory `catkin_ws`
@@ -76,7 +76,7 @@ $ catkin_make --pkg lwr_simple_example
 In case of any additional added implemented functionalities, remember to add the directory of its source file and header file in [CMakeList](kuka-lwr-ros-examples/lwr_task_examples/lwr_simple_example/CMakeLists.txt), then rebuild the package by repeating the last step.
 
 
-### Launch the simulation
+#### Launch the simulation
 
 After building the package successfully, the simulation can be started. In order to start the simulation, open three different terminal windows.
 
@@ -117,29 +117,6 @@ Command is a placeholder and possible options to execute in using this approach 
 
 Notice: the robot means the end-effector of the robot here.
 
-### Task execution with shared control
-
-#### Haptic Device setup
-
-The haptic device is the [omega.3](https://www.forcedimension.com/images/doc/specsheet_-_omega3.pdf). You may need to adjust the path to the libraries of the haptic device in the CMakelist.txt.
-You may also need to give the permission to the port where the haptic device is inserted. To do this type in a terminal
-
-```
-$ ls -l /dev/bus/usb/00*
-```
-Which will give the list of devices connected to the port. Check which is the port connected to the haptic device.
-
-Suppose this corresponds to your device
-```
-/dev/bus/usb/003
-crw-rw-r-- 1 root root 189, 263  1월 10 15:42 008
-```
-Then type this command to give permisssion
-```
-sudo chmod o+w /dev/bus/usb/003/008
-```
-
-
 #### Collection of the first demonstration
 
 Start three terminal windows and launch the corresponding launch files as mentioned above.
@@ -157,8 +134,7 @@ $ Cmd> Record
 The user is required to do the first demonstration, and the data is saved in [record](data/record/). The robot desired positions are saved in [desired_positions](data/record/data_comm.txt), and the robot real positions are saved in [real_positions](data/record/data_mes.txt).  The first demonstration (data of real postions) is then processed offline by Matlab script [preprocessing](https://github.com/xhtsansiro/Shared_Control/blob/main/Data_Analysis/01_Implementation/preprocessing.m). Afterwards, save the position and velocity data in folder [data](data/).
 
 
-
-#### Execution with shared control
+#### Task execution using shared control
 
 Start three terminal windows and launch the corresponding launch files as mentioned above.
 
@@ -209,7 +185,7 @@ Then execute the command
 $ Cmd> Compare
 ```
 
-#### Adapt scenario in Gazebo
+### Adapt scenario in Gazebo
 
 When it is necessary to adapt the Gazebo scenario, such as adding new obstacles, steps are following:
 * First, create a new gazebo model, save it in folder [gazebo_model](gazebo_model/)
