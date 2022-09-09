@@ -58,9 +58,6 @@ Then type this command to give permisssion
 sudo chmod o+w /dev/bus/usb/003/008
 ```
 
-
-This package runs perfectly in ROS melodic (full desktop version) and GAZEBO 9.
-
 ### Build the package
 
 * download this package into the workspace `catkin_ws` (user-defined, any other workspace is fine). 
